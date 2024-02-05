@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+{%block body%}
+<center xmlns="http://www.w3.org/1999/html">
+    <div>
+        <form method="post" style="width:60%; margin-bottom:80px;" class="mt-2">
+            {%csrf_token%}
+            <div class="mb-3">
+                <label class="form_label">Address :</label>
+                <input class="form-control" name="add" type="text" placeholder="Address...">
+            </div>
+            <div class="mb-3">
+                <label class="form_label">Phone :</label>
+                <input class="form-control" name="ph" type="number" placeholder="Phone Number...">
+            </div>
+            <div class="mb-3">
+                <label class="form_label">Account Number :</label>
+                <input class="form-control" name="ac" type="number" placeholder="Account Number...">
+            </div>
+            <button class="btn btn-info" type="submit">Place order</button>
+        </form>
+    </div>
+</center>
+{%endblock%}

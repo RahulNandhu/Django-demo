@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block body%}
+<center>
+    <div class="container-fluid" style="margin-bottom:50px;">
+        <h5>Register Yourself</h5>
+        <form method="post" style="width:60%">
+            {%csrf_token%}
+            <div class="mt-2">
+                <label class="form-label">Username</label>
+                <input class="form-control" type="text" name="uname" placeholder="Enter username...">
+            </div>
+            <div class="mt-2">
+                <label class="form-label">Password</label>
+                <input class="form-control" type="password" name="pass" placeholder="Enter password...">
+            </div>
+            <div class="mt-2">
+                <label class="form-label">Confirm Password</label>
+                <input class="form-control" type="password" name="cpass" placeholder="Enter password...">
+            </div>
+            <div class="mt-2">
+                <label class="form-label">First Name</label>
+                <input class="form-control" type="text" name="fname" placeholder="Enter your first name...">
+            </div>
+            <div class="mt-2">
+                <label class="form-label">Last Name</label>
+                <input class="form-control" type="text" name="lname" placeholder="Enter your last name...">
+            </div>
+            <div class="mt-2">
+                <label class="form-label">Eamil</label>
+                <input class="form-control" type="email" name="email" placeholder="Enter Email address...">
+            </div>
+            <button type="submit" class="btn btn-info btn-outline-light"> Submit</button>
+        </form>
+    </div>
+</center>
+{%endblock%}

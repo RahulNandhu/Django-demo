@@ -1,0 +1,40 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block body%}
+<div class="container-fluid">
+    <div class="row mt-3">
+        <div class="col-md-7">
+            <div class="box-element">
+                <img src="{{i.image.url}}" width="100%" height="300px;">
+            </div>
+        </div>
+        <div class="col-md-5 box-element">
+            <div>
+                <h5 class="fw-bold">{{i.name}}</h5>
+                <h6 class="mt-3"><i class="fa-solid fa-indian-rupee-sign"></i> {{i.price}}</h6>
+                <h4>Stock :{{i.stock}}</h4>
+                <p style="text-element:justify;" class="mt-3">{{i.desc}}</p>
+
+                {% if user.is_authenticated %}
+                    {%if user.is_superuser == True %}
+                        {% if i.stock == 0 %}
+                            <h2>Product is out Of Stock</h2>
+                            <a class="btn btn-success btn-outline-light fw-bold mt-5" href="{% url 'admin:index' %}">Add Stock</a>
+                        {% else %}
+                            <h2>Product in Stock</h2>
+                            <a class="btn btn-success btn-outline-light fw-bold mt-5" href="{% url 'admin:index' %}">Add Stock</a>
+                        {%endif%}
+
+                        {%else%}
+                            {% if i.stock == 0 %}
+                                <h2>Out Of Stock</h2>
+                            {%else%}
+                                <a class="btn btn-success btn-outline-light fw-bold mt-5" href="{% url 'cart:addtocart' i.name %}">Add to cart</a>
+                            {%endif%}
+                    {%endif%}
+                {%endif%}
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,54 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block body%}
+<div class="container" style="margin-bottom:80px;">
+    <div class="row">
+        <h4 class="text-center">Shopping cart</h4>
+        <div class="col-7 border border-1">
+            <table class="table table-bordered">
+                <tr>
+                    <th colspan="7">Cart Item</th>
+                </tr>
+                {%for i in cart%}
+                <tr>
+                    <td><img src="{{i.product.image.url}}" height="100px;"></td>
+                    <td><h5>{{i.product.name}}</h5></td>
+                    <td><b>Quantity:</b><h5>{{i.quantity}}</h5></td>
+                    <td><b>Price : </b><h5>{{i.product.price}}</h5></td>
+                    <td><b>Price : </b><h5>{{i.subtotal}}</h5></td>
+
+                    {%if i.product.stock > 0%}
+                    <td>
+
+                        <a href="{%url 'cart:addtocart' i.product.name%}"><i class="fa-solid fa-plus text-success fs-4"></i></a>
+                        <a href="{%url 'cart:removecart' i.product.name%}"><i class="fa-regular fa-square-minus text-success fs-4"></i></a>
+                    </td>
+                    <td><a href="{%url 'cart:cartdelete' i.product.name%}"><i class="fa-regular fa-trash-can text-dark fs-4"></i></a></td>
+
+                    {% else %}
+
+                    <td> <a href="{%url 'cart:removecart' i.product.name%}"><i class="fa-regular fa-square-minus text-success fs-4"></i></a> </td>
+                    <td><a href="{%url 'cart:cartdelete' i.product.name%}"><i class="fa-regular fa-trash-can text-dark fs-4"></i></a></td>
+
+                    {%endif%}
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+
+        <div class="col-md-4 ms-3">
+            <table class="table table-bordered">
+                <tr>
+                    <th colspan="5">Check Out</th>
+                </tr>
+                <tr>
+                    <td>Total : {{total}}</td>
+                </tr>
+            </table>
+            <a class="btn btn-success" href="{%url 'cart:orderform'%}">Place Order</a>
+            <a class="btn btn-success" href="{%url 'shop:home'%}" style="position:absolute; right:181px;">Continue Shopping</a>
+        </div>
+    </div>
+</div>
+{%endblock%}

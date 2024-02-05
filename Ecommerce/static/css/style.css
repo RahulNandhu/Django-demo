@@ -1,0 +1,31 @@
+body{
+  background-color: #f5f3f2;
+}
+
+.fon{
+  font-family: "Ephesis", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.footer{
+background-color:black;
+text-align:center;
+width:100%;
+height:50px;
+position:fixed;
+bottom:0;
+left:0;
+}
+
+.card-img{
+width:100%;
+}
+
+.box-element{
+
+    box-shadow:hsl(0, 0%, 80%) 0 0 16px;
+	background-color: #fff;
+	border-radius: 4px;
+	padding: 10px;
+}

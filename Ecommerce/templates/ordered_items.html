@@ -1,0 +1,41 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block body%}
+<div class="mb-5">
+    <center>
+        <table class="table table-bordered m-2">
+            <tr class="text-center">
+                {%if user.is_authenticated%}
+                <th colspan="7">Customer : {{user.username}}</th>
+                {%else%}
+                <th colspan="7">Customer : Guest</th>
+                {%endif%}
+            </tr>
+            <tr class="fw-bold text-center">
+                <td>Product</td>
+                <td>Name</td>
+                <td>Quantity</td>
+                <td>Price</td>
+                <td>Total</td>
+                <td>Delivery Address</td>
+                <td>Phone</td>
+                <td>Ordered on</td>
+                <td>Delivery status</td>
+            </tr>
+            {%for i in items%}
+            <tr>
+                <td><img src="{{i.product.image.url}}" width="60px;" height="70px;"></td>
+                <td>{{i.product.name}}</td>
+                <td>{{i.no_of_item}}</td>
+                <td>{{i.product.price}}</td>
+                <td>{{i.Total}}</td>
+                <td>{{i.address}}</td>
+                <td>{{i.phone}}</td>
+                <td>{{i.date_added}}</td>
+                <td>{{i.delivery_status}}</td>
+            </tr>
+            {%endfor%}
+        </table>
+    </center>
+</div>
+{%endblock%}
