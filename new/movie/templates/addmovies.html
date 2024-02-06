@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+{%block content%}
+<div class="container-fluid">
+    <form enctype="multipart/form-data" style="width:50%;" method="post">
+        {%csrf_token%}
+        <div class="mb-3">
+            <label class="form-label" for="mtitle">Title : </label>
+            <input class="form-control" id="mtitle" type="text" name="title">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="myear">Year of Release : </label>
+            <input class="form-control" id="myear" type="number" name="year">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="minfo">More Info</label>
+            <input class="form-control" id="minfo" type="text" name="info">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="mcover">Cover</label>
+            <input class="form-control" id="mcover" type="file" name="cover">
+        </div>
+        <input type="submit">
+    </form>
+</div>
+{%endblock%}
