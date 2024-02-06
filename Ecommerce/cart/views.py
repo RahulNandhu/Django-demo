@@ -102,3 +102,7 @@ def yourorders(request):
     u=request.user
     items=Order.objects.filter(user=u)
     return render(request,template_name='ordered_items.html',context={'items':items})
+
+
+def checking(request):
+    pass
