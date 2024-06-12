@@ -16,7 +16,7 @@ def addmovies(request):
         b=Movies.objects.create(title=t,info=i,year=y,cover=c)
         b.save()
         return home(request)
-    return render(request,template_name='addmovies.html')
+    return render(request,template_name='addbooks.html')
 
 def movie(request,p):
     b=Movies.objects.get(id=p)
